@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\website;
 
+use App\Transformers\WebsiteTransformer;
+
 class WebsiteController extends Controller
 {
     public function store(Request $request){

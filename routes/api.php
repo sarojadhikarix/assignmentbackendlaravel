@@ -17,9 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Authentication
+Route::group(['prefix' => 'register'], function ($app) {
+    Route::post('/', 'Auth\RegisterController@register');
+    Route::get('{id}', 'Auth\RegisterController@find');
+});
+
 Route::group(['prefix' => 'website'], function ($app) {
     Route::post('/','WebsiteController@store');
     Route::get('/','WebsiteController@index');
+    Route::delete('{id}', 'WebsiteController@delete');
 });
 
 Route::group(['prefix' => 'rating'], function ($app) {

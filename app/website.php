@@ -11,4 +11,9 @@ class website extends Model
     protected $primaryKey = 'id';
     
     public $timestamp = true;
+
+    public function category()
+    {
+       return $this->belongsTo(category::class);
+    }
 }

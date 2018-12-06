@@ -11,4 +11,24 @@ class website extends Model
     protected $primaryKey = 'id';
     
     public $timestamp = true;
+    
+    public function category()
+    {
+       return $this->belongsTo(category::class);
+    }
+
+    public function scopeSearch($query, $keyword){
+        if($keyword != ''){
+   
+          
+            return $query->where(function($query) use ($keyword){      
+                            $searchKeyword = preg_split('/\s+/', $keyword, -1, PREG_SPLIT_NO_EMPTY);
+                            foreach ($searchKeyword as $val) {
+                              $query->where('url', 'like', '%' .$val. '%');
+                                }
+                            })
+                         ->orderBy('id', 'asc')->where('status', '=', 1);
+                         
+                       }
+    }
 }

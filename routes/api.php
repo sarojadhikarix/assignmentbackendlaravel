@@ -23,6 +23,7 @@ Route::group(['prefix' => 'register'], function ($app) {
     Route::get('{id}', 'Auth\RegisterController@find');
 });
 
+
 Route::post('password/email', 'Auth\ForgotPasswordController@getResetToken');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
@@ -40,6 +41,7 @@ Route::group(['prefix' => 'category'], function ($app) {
     Route::get('{id}','CategoryController@find');
     Route::delete('{id}', 'CategoryController@delete');
     Route::post('search/', 'CategoryController@search');
+
 });
 
 Route::group(['prefix' => 'rating'], function ($app) {

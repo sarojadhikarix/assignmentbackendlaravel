@@ -11,11 +11,12 @@ class website extends Model
     protected $primaryKey = 'id';
     
     public $timestamp = true;
-    
+
     public function category()
     {
        return $this->belongsTo(category::class);
     }
+
 
     public function scopeSearch($query, $keyword){
         if($keyword != ''){
@@ -31,4 +32,5 @@ class website extends Model
                          
                        }
     }
+
 }

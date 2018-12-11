@@ -7,7 +7,6 @@ use App\website;
 use Illuminate\Support\Facades\Auth;
 use App\Transformers\WebsiteTransformer;
 
-use App\Transformers\WebsiteTransformer;
 
 class WebsiteController extends Controller
 {
@@ -54,24 +53,7 @@ class WebsiteController extends Controller
         }
     }
 
-    public function find($id)
-    {
-        $website = website::find($id);
-        if(count($website)){
-            return fractal()
-            ->item($website)
-            ->parseIncludes([])
-            ->transformWith(new WebsiteTransformer)
-            ->toArray();
-        }
-        else{
-            return response()->json([
-                'data' => [
-                    'status' => 'not_found']
-                ]);
-        }
-
-    }
+   
 
     public function find($id)
     {
@@ -181,43 +163,6 @@ class WebsiteController extends Controller
             return response()->json($returnData);
         }
 
-    }
-
-    public function update(Request $request)
-    {
-        try{
-        website::where('id', $request->id)->update([
-            'url' => $request -> url,
-            'validated' => $request -> validated,
-            'category_id' => $request -> category_id,
-            'status' => $request -> status,
-        ]);
-        }catch (\PDOException $e){
-            $returnData = array(
-                'message' => 'Could not update.'
-            );
-            return response()->json($returnData);
-        }
-            $returnData = array(
-                'message' => 'Updated.'
-            );
-        return response()->json($returnData);
-    }
-
-    public function delete($id)
-    {
-        try{
-            website::find($id)->delete();
-        }catch (\PDOException $e){
-            $returnData = array(
-                'message' => 'Could not delete.'
-            );
-            return response()->json($returnData);
-        }
-        $returnData = array(
-            'message' => 'Deleted.'
-        );
-    return response()->json($returnData);
     }
 
 }

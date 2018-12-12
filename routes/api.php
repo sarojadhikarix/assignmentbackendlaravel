@@ -47,3 +47,5 @@ Route::group(['prefix' => 'category'], function ($app) {
 Route::group(['prefix' => 'rating'], function ($app) {
     Route::get('/','RatingController@index');
 });
+
+Route::get('/user/roles', 'RoleController@allroles');

@@ -27,6 +27,8 @@ Route::group(['prefix' => 'register'], function ($app) {
 Route::post('password/email', 'Auth\ForgotPasswordController@getResetToken');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
+Route::get('crawler/{url}', 'CrawlerController@crawler');
+
 Route::group(['prefix' => 'website'], function ($app) {
     Route::post('/','WebsiteController@store');
     Route::get('/','WebsiteController@index');

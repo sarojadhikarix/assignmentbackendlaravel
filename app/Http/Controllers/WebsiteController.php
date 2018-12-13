@@ -13,7 +13,7 @@ class WebsiteController extends Controller
     public function store(Request $request){
 
          
-        if(auth()->guard('api')->user() != null){
+        // if(auth()->guard('api')->user() != null){
             try{
                 $this->validate(request(), [
                     'url' => 'required',
@@ -45,12 +45,12 @@ class WebsiteController extends Controller
                     'message' => 'Website Added.'
                 );
             return response()->json($returnData);
-        }else{
-            $returnData = array(
-                'message' => 'authenticated.'
-            );
-            return response()->json($returnData);
-        }
+        // }else{
+        //     $returnData = array(
+        //         'message' => 'unauthenticated.'
+        //     );
+        //     return response()->json($returnData);
+        // }
     }
 
    

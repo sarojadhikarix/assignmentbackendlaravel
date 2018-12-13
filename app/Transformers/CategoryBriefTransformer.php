@@ -11,6 +11,7 @@ class CategoryBriefTransformer extends TransformerAbstract
 		return[
 			'title' => $category->title,
 			'id' => $category->id,
+			'parent_id' => $category->parent_id,
 		];
 	}
 }

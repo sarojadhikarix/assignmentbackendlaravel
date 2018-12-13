@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class category extends Model
 {
     protected $table = 'categories';
-    protected $fillable =['title'];
+    protected $fillable =['title', 'parent_id'];
     protected $primaryKey = 'id';
     
     public $timestamp = true;
-
 
     public function websites()
     {

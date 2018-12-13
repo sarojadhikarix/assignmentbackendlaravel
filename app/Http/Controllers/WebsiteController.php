@@ -20,6 +20,12 @@ class WebsiteController extends Controller
                     'user_id' => 'required',
                     'validated' => 'required',
                     'category_id' => 'required',
+                    'logo' => 'logo',
+                    'big_logo' => 'big_logo',
+                    'description' => 'description',
+                    'age_restrict' => 'age_restrict',
+                    'parent_site_id' => 'parent_site_id',
+                    'language_id' => 'language_id',
                 ]); 
 
                 $website = new website;
@@ -90,6 +96,12 @@ class WebsiteController extends Controller
             'url' => 'required',
             'validated' => 'required',
             'category_id' => 'required',
+            'logo' => 'logo',
+            'big_logo' => 'big_logo',
+            'description' => 'description',
+            'age_restrict' => 'age_restrict',
+            'parent_site_id' => 'parent_site_id',
+            'language_id' => 'language_id',
         ]); 
         try{
 
@@ -104,6 +116,12 @@ class WebsiteController extends Controller
             'validated' => $request -> validated,
             'category_id' => $request -> category_id,
             'status' => $status,
+            'logo' => $request -> logo,
+            'big_logo' => $request -> big_logo,
+            'description' => $request -> description,
+            'age_restrict' => $request -> age_restrict,
+            'parent_site_id' => $request -> parent_site_id,
+            'language_id' => $request -> language_id,
         ]);
         }catch (\PDOException $e){
             $returnData = array(

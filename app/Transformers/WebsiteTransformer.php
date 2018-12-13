@@ -15,6 +15,12 @@ protected $availableIncludes = ['category'];
             'user_id' => $website -> user_id,
             'validated' => $website -> validated,
             'category_id' => $website -> category_id,
+            'logo' => $website -> logo,
+            'big_logo' => $website -> big_logo,
+            'description' => $website -> description,
+            'age_restrict' => $website -> age_restrict,
+            'parent_site_id' => $website -> parent_site_id,
+            'language_id' => $website -> language_id,
             'status' => $website -> status,
         ];
     }

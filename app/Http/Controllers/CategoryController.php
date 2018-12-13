@@ -11,10 +11,16 @@ use App\Transformers\CategoryBriefTransformer;
 class CategoryController extends Controller
 {
     public function store(Request $request){
+
+        $this->validate(request(), [
+            'title' => 'required',
+            'parent_id' => 'required',
+        ]); 
+
         if(auth()->guard('api')->user() != null){
             $category = new category;
             $category->title = $request->title;
-
+            $category->parent_id = $request->parent_id;
             
                 $category->save();
             
@@ -61,10 +67,17 @@ class CategoryController extends Controller
 
     public function update(Request $request)
     {
+ 
+
         if(auth()->guard('api')->user() != null){
+            $this->validate(request(), [
+                'title' => 'required',
+                'parent_id' => 'required',
+            ]);
         try{
             category::where('id', $request->id)->update([
                 'title' => $request -> title,
+                'parent_id' => $request -> parent_id,
             ]);
             }catch (\PDOException $e){
                 $returnData = array(

@@ -55,12 +55,8 @@ class WebsiteController extends Controller
                     'message' => 'Website Added.'
                 );
             return response()->json($returnData);
-        // }else{
-        //     $returnData = array(
-        //         'message' => 'unauthenticated.'
-        //     );
-        //     return response()->json($returnData);
-        // }
+        
+            
     }
 
    

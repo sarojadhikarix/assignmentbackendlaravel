@@ -18,7 +18,6 @@ class WebsiteValidation extends Controller
             $validation = new website_validation;
             $validation -> website_id = $request->website_id;
             $validation -> user_id = $request->user_id;
-            $validation -> status = $request->status;
             $validation -> validation_code = md5(microtime());
             $validation -> expire_date = Carbon::now()->addYears(1);
 

@@ -17,7 +17,6 @@ class WebsiteController extends Controller
             try{
                 $this->validate(request(), [
                     'url' => 'required',
-                    'validated' => 'required',
                     'category_id' => 'required',
                     'logo' => 'required',
                     'big_logo' => 'required',
@@ -29,7 +28,7 @@ class WebsiteController extends Controller
 
                 $website = new website;
                 $website -> url = $request->url;
-                $website -> validated = $request->validated;
+                $website -> validated = 0;
                 $website -> category_id = $request->category_id;
                 $website -> logo = $request -> logo;
                 $website -> big_logo = $request -> big_logo;
@@ -94,7 +93,6 @@ class WebsiteController extends Controller
         if(auth()->guard('api')->user() != null){
         $this->validate(request(), [
             'url' => 'required',
-            'validated' => 'required',
             'category_id' => 'required',
             'logo' => 'logo',
             'big_logo' => 'big_logo',
@@ -113,7 +111,6 @@ class WebsiteController extends Controller
 
         website::where('id', $request->id)->update([
             'url' => $request -> url,
-            'validated' => $request -> validated,
             'category_id' => $request -> category_id,
             'status' => $status,
             'logo' => $request -> logo,

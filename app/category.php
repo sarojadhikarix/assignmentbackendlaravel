@@ -17,6 +17,12 @@ class category extends Model
        return $this->hasMany(website::class)->orderBy('id', 'asc');
     }
 
+    public function branches()
+    {
+       //return $this->hasMany(category::class);
+       return $this->hasMany('App\category','parent_id');
+    }
+
     public function scopeSearch($query, $keyword){
         if($keyword != ''){
    

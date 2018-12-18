@@ -20,19 +20,25 @@ class WebsiteController extends Controller
                     'user_id' => 'required',
                     'validated' => 'required',
                     'category_id' => 'required',
-                    'logo' => 'logo',
-                    'big_logo' => 'big_logo',
-                    'description' => 'description',
-                    'age_restrict' => 'age_restrict',
-                    'parent_site_id' => 'parent_site_id',
-                    'language_id' => 'language_id',
+                    'logo' => 'required',
+                    'big_logo' => 'required',
+                    'description' => 'required',
+                    'age_restrict' => 'required',
+                    'parent_site_id' => 'required',
+                    'language_id' => 'required',
                 ]); 
 
                 $website = new website;
-                $website->url = $request->url;
-                $website->user_id = $request->user_id;
-                $website->validated = $request->validated;
-                $website->category_id = $request->category_id;
+                $website -> url = $request->url;
+                $website -> user_id = $request->user_id;
+                $website -> validated = $request->validated;
+                $website -> category_id = $request->category_id;
+                $website -> logo = $request -> logo;
+                $website -> big_logo = $request -> big_logo;
+                $website -> description = $request -> description;
+                $website -> age_restrict = $request -> age_restrict;
+                $website -> parent_site_id = $request -> parent_site_id;
+                $website -> language_id = $request -> language_id;
 
                 if ($request->status) {
                     $website->status = $request->status;
@@ -43,7 +49,7 @@ class WebsiteController extends Controller
 
             }catch (\PDOException $e){
                 $returnData = array(
-                    'message' => 'Could not add.'
+                    'message' => 'Could not add. ' . $e
                 );
                 return response()->json($returnData);
             }

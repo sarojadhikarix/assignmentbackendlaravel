@@ -57,10 +57,10 @@ class CategoryController extends Controller
     }
 
     public function index(){
-        $categories= category::get();
+        $categories= category::whereNull('parent_id')->get();
         return fractal()
             ->collection($categories)
-            ->parseIncludes(['websites'])
+            ->parseIncludes(['websites', 'branches'])
             ->transformWith(new CategoryBriefTransformer)
             ->toArray();
     }

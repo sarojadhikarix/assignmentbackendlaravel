@@ -28,6 +28,7 @@ Route::post('password/email', 'Auth\ForgotPasswordController@getResetToken');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('crawler/{url}', 'CrawlerController@crawler');
+Route::get('crawler/validation/{url}', 'CrawlerController@checkIfValidated');
 
 Route::group(['prefix' => 'website'], function ($app) {
     Route::post('/','WebsiteController@store');

@@ -12,7 +12,6 @@ protected $availableIncludes = ['category'];
         return [
             'id' => (int) $website -> id,
             'url' => $website -> url,
-            'user_id' => $website -> user_id,
             'validated' => $website -> validated,
             'category_id' => $website -> category_id,
             'logo' => $website -> logo,

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class website extends Model
 {
     protected $table = 'websites';
-    protected $fillable =['url', 'user_id', 'validated', 'category_id', 'status', 'logo','big_logo', 'description', 'age_restrict', 'parent_site_id', 'language_id'];
+    protected $fillable =['url', 'validated', 'category_id', 'status', 'logo','big_logo', 'description', 'age_restrict', 'parent_site_id', 'language_id'];
     protected $primaryKey = 'id';
     
     public $timestamp = true;

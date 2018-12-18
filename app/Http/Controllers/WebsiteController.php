@@ -17,7 +17,6 @@ class WebsiteController extends Controller
             try{
                 $this->validate(request(), [
                     'url' => 'required',
-                    'user_id' => 'required',
                     'validated' => 'required',
                     'category_id' => 'required',
                     'logo' => 'required',
@@ -30,7 +29,6 @@ class WebsiteController extends Controller
 
                 $website = new website;
                 $website -> url = $request->url;
-                $website -> user_id = $request->user_id;
                 $website -> validated = $request->validated;
                 $website -> category_id = $request->category_id;
                 $website -> logo = $request -> logo;

@@ -31,6 +31,7 @@ Route::get('crawler/{url}', 'CrawlerController@crawler');
 Route::get('crawler/validation/{url}', 'CrawlerController@checkIfValidated');
 
 Route::post('addvalidation', 'WebsiteValidation@add');
+Route::get('visit/{website_id}', 'VisitController@add');
 
 Route::group(['prefix' => 'website'], function ($app) {
     Route::post('/','WebsiteController@store');
